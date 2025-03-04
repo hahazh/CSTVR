@@ -4,7 +4,7 @@ This is the code of the paper "Continuous Space-Time Video Resampling with Inver
 
 overview
 <div align="center">
-  <img src="pic/overview.png" alt="Description of the image" width="500"/>
+  <img src="pic/overview.png" alt="Description of the image" width="800"/>
 </div>
 
 # test code
