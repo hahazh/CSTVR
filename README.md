@@ -2,6 +2,10 @@
 This is the code of the paper "Continuous Space-Time Video Resampling with Invertible Motion Steganography"
 
 
+overview
+<div align="center">
+  <img src="pic/overview.png" alt="Description of the image" width="500"/>
+</div>
 
 # test code
 
