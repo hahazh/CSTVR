@@ -8,21 +8,17 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
 from os import path as osp
 import numpy as np
 from utils.model_utils import get_model_total_params
-from skimage.metrics import structural_similarity as compare_ssim
-import data.core_bicubic  as core_bicubic
 
 
-# 考虑中间的量化
-def test_vimeo_w_quan():
+def test_vimeo():
     from data.vimeo_seq_dataset import Vimeo_SepTuplet
-    from torchvision import transforms
-    from arch.surrogate_arch import IND_inv3D
+    from arch.IMSM import IND_inv3D
     from utils.options import yaml_load
     device = torch.device('cuda')
-    weight_base_p = '/home/zhangyuantong/code/ST_rescale_open_source/CVRS/archieved/'
-    base_out_p = '/home/zhangyuantong/code/ST_rescale_open_source/CVRS/output'
+    weight_base_p = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/archieved/'
+    base_out_p = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output'
     Time_factor = 2
-    Scale_factor = 1
+    Scale_factor = 4
     if Time_factor==2 and Scale_factor==1:
         from arch.Mynet_arch import RescalerNet
     else:
@@ -109,6 +105,6 @@ def test_vimeo_w_quan():
           
             
 if __name__=='__main__':
-    test_vimeo_w_quan()
+    test_vimeo()
     # CUDA_VISIBLE_DEVICES=4 python vimeo7_test.py
     

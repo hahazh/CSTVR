@@ -16,12 +16,12 @@ def test_vid4_contin():
     # from archs.Mynet_arch import RescalerNet
     from data.vid4_dataset import Vid4
     from torchvision import transforms
-    from arch.surrogate_arch import IND_inv3D
+    from arch.IMSM import IND_inv3D
     from utils.options import yaml_load
 
     device = torch.device('cuda')
     GT_p = '/home/zhangyuantong/dataset/Vid4/GT_cp/'
-    base_out_p = '/home/zhangyuantong/code/ST_rescale_open_source/CVRS/output'
+    base_out_p = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output'
     weight_base_p = '/home/zhangyuantong/code/ST_rescale/archieved/'
     test_dataset_name = 'vid4'
     Time_factor = 1

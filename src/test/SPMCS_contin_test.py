@@ -16,10 +16,10 @@ def init_model():
     from utils.options import yaml_load
     from basicsr.metrics.psnr_ssim import calculate_psnr,calculate_ssim
     from utils.model_utils import get_model_total_params
-    from arch.surrogate_arch import IND_inv3D
+    from arch.IMSM import IND_inv3D
     # 加载rescaling模型
     
-    weight_base_p = '/home/zhangyuantong/code/ST_rescale_open_source/CVRS/archieved/Contin'
+    weight_base_p = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/archieved/Contin'
     base_out_p = '/home/zhangyuantong/code/ST_rescale/out'
     test_dataset_name = 'adobe'
  
@@ -99,7 +99,7 @@ def SPMCS_test():
     model,rescale_model = init_model()
   
     data_dir = '/home/zhangyuantong/dataset/SPMCS/'
-    base_out_p = '/home/zhangyuantong/code/ST_rescale_open_source/CVRS/output/continuous/SPMCS_test/'
+    base_out_p = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output/continuous/SPMCS_test/'
 
     scale_list = [4.0,3.6,3.2,2.8,2.4,2.0]
 
@@ -186,6 +186,6 @@ def gen_seq_index(t_scale):
     # print(res)
     return res,down_size_t
 if __name__=='__main__':
-    # CUDA_VISIBLE_DEVICES=4 python test_contin_SPMCS.py
+    # CUDA_VISIBLE_DEVICES=4 python SPMCS_contin_test.py
     SPMCS_test()
     
