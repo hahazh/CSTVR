@@ -7,7 +7,7 @@ import cv2
 import os
 
 def test_vid():
-    pred_dir = '/home/zhangyuantong/code/ST_rescale_open_source/CVRS/output/Tx1_Sx4/vid4'
+    pred_dir = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output/Tx1_Sx4/vid4'
     base_p = '/home/zhangyuantong/dataset/Vid4/GT/'
     seq_list = sorted( [each for each in os.listdir(base_p) if  each.split('.')[-1]!='txt'])
     print(seq_list)

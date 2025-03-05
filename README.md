@@ -1,4 +1,4 @@
-# CVRS 
+# CSTVR 
 This is the code of the paper "Continuous Space-Time Video Resampling with Invertible Motion Steganography"
 
 ## Introduction
@@ -13,7 +13,7 @@ Space-time video resampling aims to conduct both spatial-temporal downsampling a
   <img src="pic/overview.png" alt="Description of the image" width="800"/>
 </div>
 
-## Perfromance
+## Performance
 <div align="center">
   <img src="pic/performance.png" alt="Description of the image" width="800"/>
 </div>

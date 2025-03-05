@@ -243,10 +243,4 @@ class ModuleNet3D(nn.Module):
         return self.query_rgb_3d(feat,size)
  
 
-
- 
-if __name__=='__main__':
-    # net = ModuleNet().cuda()
-    ten = torch.randn(1,64,128,128).cuda()
-    out = net(ten,size = (136,64))
  
