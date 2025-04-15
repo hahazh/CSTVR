@@ -7,8 +7,8 @@ import cv2
 import os
 
 def test_vid():
-    pred_dir = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output/Tx1_Sx4/vid4'
-    base_p = '/home/zhangyuantong/dataset/Vid4/GT/'
+    pred_dir = 'path/to/your/dir/output/'
+    base_p = 'path/to/your/dir/GT/'
     seq_list = sorted( [each for each in os.listdir(base_p) if  each.split('.')[-1]!='txt'])
     print(seq_list)
     avg_psnr = []
@@ -50,9 +50,9 @@ def test_vid():
         print(f'now avg psnr {sum(avg_psnr)/len(avg_psnr)} ssim {sum(avg_ssim)/len(avg_ssim)}  psnr Y {sum(avg_psnr_Y)/len(avg_psnr_Y)} ssim Y {sum(avg_ssim_Y)/len(avg_ssim_Y)} ')
 
 def com_vimeo():
-    file = open('/home/zhangyuantong/dataset/vimeo_septuplet/sequences/sep_testlist.txt','r').readlines()
-    gt_root = '/home/zhangyuantong/dataset/vimeo_septuplet/sequences/'
-    pred_root = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output/Tx1_Sx4/vimeo'
+    file = open('sep_testlist.txt','r').readlines()
+    gt_root = 'path/to/your/dir/vimeo_septuplet/sequences/'
+    pred_root = 'path/to/your/dir/vimeo'
     ty = 'uint8'
     avg_psnr = []
     avg_ssim = []
@@ -91,8 +91,8 @@ def com_vimeo():
         print(f'seq psnr {sum(seq_psnr)/len(seq_psnr)} ssim {sum(seq_ssim)/len(seq_ssim)} seq psnr Y {sum(seq_psnr_Y)/len(seq_psnr_Y)} ssim Y {sum(seq_ssim_Y)/len(seq_ssim_Y)}')
         print(f'now avg psnr {sum(avg_psnr)/len(avg_psnr)} ssim {sum(avg_ssim)/len(avg_ssim)}  psnr Y {sum(avg_psnr_Y)/len(avg_psnr_Y)} ssim Y {sum(avg_ssim_Y)/len(avg_ssim_Y)} ')
 def com_SPMCS():
-    pred_dir = '/home/zhangyuantong/code/ST_rescale/out/continuous/SPMCS_test_tmp/'
-    base_p = '/home/zhangyuantong/dataset/SPMCS/'
+    pred_dir = 'path/to/your/dir/out/continuous/SPMCS_test_tmp/'
+    base_p = 'path/to/your/dir/SPMCS/'
     scale_list = [4.0,3.6,3.2,2.8,2.4,2.0]
     time_list = [2]
     seq_list = sorted( [each for each in os.listdir(base_p) if  each.split('.')[-1]!='txt'])
@@ -104,7 +104,7 @@ def com_SPMCS():
     for scale in scale_list:
         for tempo in time_list:
             modulate_factor = 'mul_'+(str(scale)+'_'+str(tempo)).replace('.','p')
-            f = open('/home/zhangyuantong/code/ST_rescale/out/continuous/SPMCS_cri_new/'+modulate_factor+'.txt','w')
+            f = open('path/to/your/dir/continuous/SPMCS_cri_new/'+modulate_factor+'.txt','w')
             for seq in seq_list:
                 f.write("scene: %s "%(seq)+'\n')
                 sub_seq = sorted( os.listdir(pred_dir+'/'+modulate_factor+'/'+seq+'/out'))

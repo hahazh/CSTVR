@@ -182,13 +182,13 @@ def gen_seq_index(t_scale):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_dir', type=str, 
-                        default='/home/zhangyuantong/dataset/SPMCS/',
+                        default='path/to/your/dir/SPMCS/',
                         help='Path to dataset directory')
     parser.add_argument('--base_out_p', type=str,
-                        default='/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output/contin/',
+                        default='path/to/your/dir/ST_rescale_open_source/CSTVR/output/contin/',
                         help='Base output directory')
     parser.add_argument('--weight_base_p', type=str,
-                        default='/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/archieved/Contin',
+                        default='path/to/your/dir/ST_rescale_open_source/CSTVR/archieved/Contin',
                         help='Base path for model weights')
     parser.add_argument('--test_dataset_name', type=str,
                         default='adobe',

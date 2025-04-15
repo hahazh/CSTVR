@@ -18,8 +18,8 @@ def test_vid4(data_dir, base_out_p, weight_base_p, test_dataset_name):
     from utils.options import yaml_load
 
     device = torch.device('cuda')
-    Time_factor = 1
-    Scale_factor = 4
+    Time_factor = 2
+    Scale_factor = 1
 
     if (Time_factor == 2 and Scale_factor == 1):
         from arch.Mynet_arch import RescalerNet
@@ -194,13 +194,13 @@ def test_vid4(data_dir, base_out_p, weight_base_p, test_dataset_name):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_dir', type=str, 
-                        default='/home/zhangyuantong/dataset/Vid4/GT_cp/',
+                        default='/path/to/your/dir/dataset/Vid4/GT_cp/',
                         help='Path to Vid4 dataset directory')
     parser.add_argument('--base_out_p', type=str, 
-                        default='/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output',
+                        default='/path/to/your/dir/code/ST_rescale_open_source/CSTVR/output',
                         help='Base output directory for results')
     parser.add_argument('--weight_base_p', type=str, 
-                        default='/home/zhangyuantong/code/ST_rescale/archieved/',
+                        default='/path/to/your/dir/code/ST_rescale/archieved/',
                         help='Base path for model weights')
     parser.add_argument('--test_dataset_name', type=str, 
                         default='vid4',

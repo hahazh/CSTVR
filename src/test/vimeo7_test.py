@@ -205,22 +205,22 @@ def test_vimeo(data_dir, base_out_p, weight_base_p, test_dataset_name, time_fact
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_dir', type=str, 
-                        default='/home/zhangyuantong/dataset/Vid4/GT_cp/',
+                        default='path/to/your/dir/dataset/Vid4/GT_cp/',
                         help='Path to Vimeo dataset directory')
     parser.add_argument('--base_out_p', type=str, 
-                        default='/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output',
+                        default='path/to/your/dir/code/ST_rescale_open_source/CSTVR/output',
                         help='Base output directory for results')
     parser.add_argument('--weight_base_p', type=str, 
-                        default='/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/archieved/',
+                        default='path/to/your/dir/code/ST_rescale_open_source/CSTVR/archieved/',
                         help='Base path for model weights')
     parser.add_argument('--test_dataset_name', type=str, 
                         default='vimeo',
                         help='Name of test dataset')
     parser.add_argument('--time_factor', type=int, 
-                        default=1,
+                        default=2,
                         help='Temporal scaling factor')
     parser.add_argument('--scale_factor', type=int, 
-                        default=4,
+                        default=1,
                         help='Spatial scaling factor')
     
     args = parser.parse_args()
