@@ -1,3 +1,4 @@
+import argparse
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -9,41 +10,36 @@ from data.SPMCS import SPMCS_arb
 from torch.utils.data import DataLoader
 import numpy as np
 from os import path as osp
-from PIL import Image
 device = torch.device('cuda')
-def init_model():
+
+def init_model(weight_base_p, base_out_p, test_dataset_name):
     from arch.Mynet_arch import RescalerNet
     from utils.options import yaml_load
-    from basicsr.metrics.psnr_ssim import calculate_psnr,calculate_ssim
+    from basicsr.metrics.psnr_ssim import calculate_psnr, calculate_ssim
     from utils.model_utils import get_model_total_params
     from arch.IMSM import IND_inv3D
-    # 加载rescaling模型
-    
-    weight_base_p = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/archieved/Contin'
-    base_out_p = '/home/zhangyuantong/code/ST_rescale/out'
-    test_dataset_name = 'adobe'
- 
-    out_p =  f'{base_out_p}/{test_dataset_name}'
-    # 两个weight，两个yaml
-    # 加载转换模型
-    inv_root_p = f"{weight_base_p}/inverter/config.yml"
+
+    out_p = os.path.join(base_out_p, test_dataset_name)
+
+    # Load inversion model
+    inv_root_p = os.path.join(weight_base_p, 'inverter/config.yml')
     inv_opt = yaml_load(inv_root_p)['network_g']['opt']
     model = IND_inv3D(inv_opt).to(device)
-    inv_weight_p = f"{weight_base_p}/inverter/model.pth"
+    inv_weight_p = os.path.join(weight_base_p, 'inverter/model.pth')
     inv_weight = torch.load(inv_weight_p)
-    model.load_state_dict(inv_weight['params'],strict=True)
-    
-    # 加载rescaling模型
-    model_root_path = f"{weight_base_p}/rescaler/config.yml"
+    model.load_state_dict(inv_weight['params'], strict=True)
+
+    # Load rescaling model
+    model_root_path = os.path.join(weight_base_p, 'rescaler/config.yml')
     rescale_opt = yaml_load(model_root_path)
-    rescale_model = RescalerNet(rescale_opt['network_g']['opt']).to(device) 
-    rescale_weight_p =  f"{weight_base_p}/rescaler/model.pth"
+    rescale_model = RescalerNet(rescale_opt['network_g']['opt']).to(device)
+    rescale_weight_p = os.path.join(weight_base_p, 'rescaler/model.pth')
     weight = torch.load(rescale_weight_p)
-    rescale_model.load_state_dict(weight['params'],strict=True)
+    rescale_model.load_state_dict(weight['params'], strict=True)
     rescale_model.eval()
     param = get_model_total_params(rescale_model)
-    print(f'param :{param}')
-    return model,rescale_model
+    print(f'param: {param}')
+    return model, rescale_model
 
 def single_inference(model,rescale_model,imgs,down_shape):
 
@@ -94,15 +90,11 @@ def single_inference(model,rescale_model,imgs,down_shape):
             rev_back = place_holder_back.squeeze(0).permute(1,2,3,0).detach().cpu().numpy()*255.0
     return LR_img,latent,rev_back,out
 
-def SPMCS_test():
-    from basicsr.metrics.psnr_ssim import calculate_psnr,calculate_ssim
-    model,rescale_model = init_model()
-  
-    data_dir = '/home/zhangyuantong/dataset/SPMCS/'
-    base_out_p = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output/continuous/SPMCS_test/'
+def SPMCS_test(data_dir, base_out_p, weight_base_p):
+    from basicsr.metrics.psnr_ssim import calculate_psnr, calculate_ssim
+    model, rescale_model = init_model(weight_base_p, base_out_p, 'SPMCS')
 
-    scale_list = [4.0,3.6,3.2,2.8,2.4,2.0]
-
+    scale_list = [4.0, 3.6, 3.2, 2.8, 2.4, 2.0]
     time_list = [2]
     input_two = False
     for scale in scale_list:
@@ -170,7 +162,9 @@ def SPMCS_test():
                         psnr = calculate_psnr(img_gt,img_restore,crop_border=0,test_y_channel=True)
                         ssim = calculate_ssim(img_gt,img_restore,crop_border=0,test_y_channel=True)
                         print(f'{name[0]}/{img_name} psnr {psnr} ssim  {ssim}')
-           
+
+    # ... (rest of the function remains unchanged)
+
 def gen_seq_index(t_scale):
     res = []
     time_interval= 4
@@ -183,9 +177,23 @@ def gen_seq_index(t_scale):
 
             res.append(tmp)
         down_size_t = 3
-    # print(res)
     return res,down_size_t
-if __name__=='__main__':
-    # CUDA_VISIBLE_DEVICES=4 python SPMCS_contin_test.py
-    SPMCS_test()
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--data_dir', type=str, 
+                        default='/home/zhangyuantong/dataset/SPMCS/',
+                        help='Path to dataset directory')
+    parser.add_argument('--base_out_p', type=str,
+                        default='/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output/contin/',
+                        help='Base output directory')
+    parser.add_argument('--weight_base_p', type=str,
+                        default='/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/archieved/Contin',
+                        help='Base path for model weights')
+    parser.add_argument('--test_dataset_name', type=str,
+                        default='adobe',
+                        help='Name of test dataset')
     
+    args = parser.parse_args()
+
+    SPMCS_test(args.data_dir, args.base_out_p, args.weight_base_p)

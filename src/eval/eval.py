@@ -50,9 +50,9 @@ def test_vid():
         print(f'now avg psnr {sum(avg_psnr)/len(avg_psnr)} ssim {sum(avg_ssim)/len(avg_ssim)}  psnr Y {sum(avg_psnr_Y)/len(avg_psnr_Y)} ssim Y {sum(avg_ssim_Y)/len(avg_ssim_Y)} ')
 
 def com_vimeo():
-    file = open('/home/zhangyuantong/dataset/vimeo_septuplet/sep_testlist.txt','r').readlines()
+    file = open('/home/zhangyuantong/dataset/vimeo_septuplet/sequences/sep_testlist.txt','r').readlines()
     gt_root = '/home/zhangyuantong/dataset/vimeo_septuplet/sequences/'
-    pred_root = '/home/zhangyuantong/code/ST_rescale/out/RescalerNet/vimeo_Sx4'
+    pred_root = '/home/zhangyuantong/code/ST_rescale_open_source/CSTVR/output/Tx1_Sx4/vimeo'
     ty = 'uint8'
     avg_psnr = []
     avg_ssim = []
@@ -147,6 +147,6 @@ def com_SPMCS():
             f.write(f' total {len(psnr_list_Y)} psnr_y {sum(psnr_list_Y)/len(psnr_list_Y)} ssim_y {sum(ssim_list_Y)/len(ssim_list_Y)}'+'\n')
 if __name__=='__main__':
     # test_vid()
-    # com_vimeo()
-    test_vid()
+    com_vimeo()
+    # test_vid()
     # com_SPMCS()

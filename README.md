@@ -24,14 +24,17 @@ Space-time video resampling aims to conduct both spatial-temporal downsampling a
 ```
 cd src/test
 
-python test_vid4.py --datapath REDSPATH --outputpath  OUTPUTPATH --weight PATHTOWEIGHT
+# for vid4
+python vid4_test.py 
+# for vimeo7
+python vimeo7_test.py
 ```
 
 ### test continuous space-time video resampling
 ```
 cd src/test
 
-python test_contin.py --datapath REDSPATH --outputpath  OUTPUTPATH --weight PATHTOWEIGHT
+python SPMCS_contin_test.py
 ```
 
 ### pretrained weight
