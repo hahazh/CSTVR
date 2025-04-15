@@ -38,8 +38,9 @@ python SPMCS_contin_test.py
 ```
 
 ### pretrained weight
-[pretrained model]( https://pan.baidu.com/s/1PA7IoclyZsDXA7EhNlGQjA?pwd=8n5e)
-password: 8n5e 
+
+[pretrained model]( https://pan.baidu.com/s/16L1WyclbxvkRSIJDImIjWQ?pwd=43x5)
+password: 43x5 
 
 
 
