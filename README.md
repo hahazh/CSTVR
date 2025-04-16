@@ -75,16 +75,12 @@ python SPMCS_contin_test.py
 # Acknowledgment
 Our code is built on
 
- [Zooming-Slow-Mo-CVPR-2020](https://github.com/Mukosame/Zooming-Slow-Mo-CVPR-2020)
-
  [open-mmlab](https://github.com/open-mmlab)
 
  [bicubic_pytorch](https://github.com/sanghyun-son/bicubic_pytorch)
 
- [IFRNet](https://github.com/ltkong218/IFRNet)
+ [Video Swin Transformers](https://github.com/shoaib6174/GSOC-22-Video-Swin-Transformers/tree/574dc10bdc12b47bea31917dfbd45d216855b033)
 
- [EMA-VFI](https://github.com/MCG-NJU/EMA-VFI)
- 
- [Galerkin Transformer](https://github.com/scaomath/galerkin-transformer)
- 
+ [SelfC](https://github.com/tianyuan168326/SelfC)
+
  We thank the authors for sharing their codes!
