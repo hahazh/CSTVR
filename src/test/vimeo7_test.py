@@ -179,7 +179,7 @@ def test_vimeo(data_dir, base_out_p, weight_base_p, test_dataset_name, time_fact
                 gt_p = data['path']+'/'+'im'+str(i+1)+'.png'
                 gt = cv2.imread(gt_p)
                 this_img = cv2.imread(sr_p+'/im'+str(i+1)+'_out.png')
-                 #算PSNR
+           
                 psnr = calculate_psnr(gt,this_img,crop_border=0,test_y_channel=False)
                 ssim = calculate_ssim(gt,this_img,crop_border=0,test_y_channel=False)
                 psnr_y = calculate_psnr(gt,this_img,crop_border=0,test_y_channel=True)

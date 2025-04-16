@@ -20,6 +20,24 @@ Space-time video resampling aims to conduct both spatial-temporal downsampling a
 
 # test code
 
+### quick start
+
+You can run a demo in a few seconds, which performs temporal 2x and spatial 4x resampling on the input. 
+```
+cd src/test
+
+python demo.py
+```
+The results will be stored in CSTVR/output/demo.
+The generated output directory structure and meanings are as follows:
+```
+├── latent: Latent features  
+├── rev: Reverse reconstruction  
+├── sr: Super-resolved output  
+└── stegan: Steganography-related images  
+```
+
+
 ### test fix-scale space-time video resampling
 ```
 cd src/test
