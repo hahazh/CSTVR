@@ -44,7 +44,7 @@ python demo.py
 The results will be stored in CSTVR/output/demo.
 The generated output directory structure and meanings are as follows:
 ```
-├── latent: Latent features  
+├── latent: Latent features  (just for visualization, not available to users)
 ├── rev: Reverse reconstruction  
 ├── sr: Super-resolved output  
 └── stegan: Steganography-related images  
