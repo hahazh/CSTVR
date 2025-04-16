@@ -13,7 +13,7 @@ import numpy as np
 def init_model():
     
     train_dataset_name = 'vimeo'
-    weight_base_p = '../../archieved'
+    weight_base_p = '../../archived'
     
     # Construct paths with parameters
     weight_p = os.path.join(weight_base_p, f'Tx{time_factor}_Sx{scale_factor}_{train_dataset_name}')

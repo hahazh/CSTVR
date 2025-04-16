@@ -20,6 +20,19 @@ Space-time video resampling aims to conduct both spatial-temporal downsampling a
 
 # test code
 
+
+### environment
+
+Our code runs well under Python 3.8.18 with torch==2.0.0, torchvision==0.15.1, and numpy==1.22.3
+
+### pretrained weight
+
+You should first download the pretrained model and place it in the directory CSTVR/archived
+
+[pretrained model]( https://pan.baidu.com/s/16L1WyclbxvkRSIJDImIjWQ?pwd=43x5)
+
+password: 43x5 
+
 ### quick start
 
 You can run a demo in a few seconds, which performs temporal 2x and spatial 4x resampling on the input. 
@@ -55,10 +68,7 @@ cd src/test
 python SPMCS_contin_test.py
 ```
 
-### pretrained weight
 
-[pretrained model]( https://pan.baidu.com/s/16L1WyclbxvkRSIJDImIjWQ?pwd=43x5)
-password: 43x5 
 
 
 

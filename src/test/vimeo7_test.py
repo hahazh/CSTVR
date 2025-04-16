@@ -211,7 +211,7 @@ if __name__ == '__main__':
                         default='path/to/your/dir/code/ST_rescale_open_source/CSTVR/output',
                         help='Base output directory for results')
     parser.add_argument('--weight_base_p', type=str, 
-                        default='path/to/your/dir/code/ST_rescale_open_source/CSTVR/archieved/',
+                        default='path/to/your/dir/code/ST_rescale_open_source/CSTVR/archived/',
                         help='Base path for model weights')
     parser.add_argument('--test_dataset_name', type=str, 
                         default='vimeo',

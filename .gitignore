@@ -2,8 +2,8 @@
 __pycache__/
 **/lightning_logs/
 
-archieved/*
-new_archieved/*
+archived/*
+new_archived/*
 output/*
 # 
 **/tmp/

@@ -188,7 +188,7 @@ if __name__ == '__main__':
                         default='path/to/your/dir/ST_rescale_open_source/CSTVR/output/contin/',
                         help='Base output directory')
     parser.add_argument('--weight_base_p', type=str,
-                        default='path/to/your/dir/ST_rescale_open_source/CSTVR/archieved/Contin',
+                        default='path/to/your/dir/ST_rescale_open_source/CSTVR/archived/Contin',
                         help='Base path for model weights')
     parser.add_argument('--test_dataset_name', type=str,
                         default='adobe',
