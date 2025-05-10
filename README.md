@@ -35,7 +35,7 @@ password: 43x5
 
 ### quick start
 
-You can run a demo in a few seconds, which performs temporal 2x and spatial 4x resampling on the input. 
+You can run a demo in a few seconds, which performs temporal 2x and spatial 1x resampling on the input. 
 ```
 cd src/test
 
