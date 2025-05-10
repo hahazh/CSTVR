@@ -91,7 +91,7 @@ def infer():
                 cv2.imwrite(sr_p+'/im'+str(i+1)+'_out.png',out[i])
 if __name__=='__main__':
     time_factor = 2
-    scale_factor = 4
+    scale_factor = 1
     device = torch.device('cuda')
     test_imgs = load_imgs()
     rescale_model,model = init_model()
