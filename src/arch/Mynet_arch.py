@@ -1,4 +1,4 @@
-# 输入部分先用独立卷积，再用 depth-wise 3d 卷积
+
 from module.general_module import DepthwiseSeparableConv3d
 from module.general_module import make_layer,ResidualBlock3D_NoBN,DepthwiseTransSeparableConv3d
 import torch
